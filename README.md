@@ -1,190 +1,148 @@
-🐆 Classificação de Comentários sobre Onças, Caseiro e Fake News usando BERT
+# 🐆 Notícias de onças classificadas usando BERT 
 
-Este projeto realiza a preparação de dados, treinamento de modelos BERT e avaliação automática para classificar comentários de notícias nas seguintes categorias:
+Este projeto utiliza BERT em português para realizar análise de sentimentos e detecção de fake news em comentários coletados sobre um caso envolvendo um ataque de onça aqui na região de Mato Grosso do Sul e sua repercussão nas redes sociais.
 
-Onça → sentimento sobre a onça (negativo, neutro, positivo)
+O sistema classifica cada comentário em três tarefas distintas:
+- Sentimento relacionado à Onça (positivo, neutro, negativo)
+- Sentimento relacionado ao Caseiro (positivo, neutro, negativo)
+- Detecção de Fake News (sim / não)
 
-Caseiro → sentimento sobre o caseiro atacado (negativo, neutro, positivo)
+O projeto inclui pré-processamento, treinamento e avaliação de modelos independentes para cada categoria, utilizando o modelo pré-treinado neuralmind/bert-base-portuguese-cased.
 
-Fake News → identificação de desinformação (sim ou não)
+## 📦 Funcionalidades
 
-Os comentários foram extraídos de notícias reais sobre ataques de onças no Brasil, e o objetivo é analisar automaticamente como o público reage em cada perspectiva.
+- Processamento de dataset e criação automática de arquivos: train_onca.csv, val_onca.csv, test_onca.csv train_caseiro.csv, val_caseiro.csv, test_caseiro.csv train_fakenews.csv, val_fakenews.csv e test_fakenews.csv
+- Treinamento de 3 modelos BERT independentes
+- Geração de gráficos de evolução de loss
+- Cálculo de métricas de desempenho: Precisão, Recall, F1-score e Matriz de Confusão
+- Exibição automática de erros de classificação para análise qualitativa
 
-📦 Funcionalidades do Projeto
+## 🧰 Tecnologias Utilizadas
 
-🧹 Limpeza e preparação automática dos dados
+- **Visual Studio Code (VS Code)**: ambiente de desenvolvimento recomendado e utilizado neste trabalho.
+- **Google Colab**: plataforma online para execução de notebooks Python em nuvem, facilitando testes e compartilhamento.
+- **Python**: linguagem principal do projeto.
+- **Transformers (HuggingFace)**: biblioteca voltada para modelos de NLP (Processamento de Linguagem Natural), como BERT e GPT, usada para treinar e aplicar modelos de inteligência artificial.
+- **Pandas**: manipulação e exportação de dados em formato tabular.
+- **Scikit-learn**: biblioteca de machine learning para pré-processamento, treinamento, avaliação e métricas de modelos.
+- **Matplotlib**: biblioteca de visualização de dados, utilizada para gerar gráficos e análises visuais.
+- **CSV**: formato de saída dos dados coletados.
 
-🏷️ Geração de datasets separados por categoria
-
-🤖 Treinamento de 3 modelos independentes usando BERT em português
-
-📈 Gráfico de evolução do loss para cada modelo
-
-📝 Avaliação completa com precisão, recall, F1-score
-
-🔍 Geração de matriz de confusão
-
-⚠️ Identificação de erros do modelo (exemplos mal classificados)
-
-🧠 Tecnologias Utilizadas
-
-Python
-
-Pandas
-
-Scikit-learn
-
-PyTorch
-
-Transformers (HuggingFace)
-
-Matplotlib
-
-Google Colab (recomendado para treinamento com GPU)
-
-VS Code (organização e execução dos scripts)
-
-📁 Estrutura do Projeto
-noticias-de-oncas/
+## 📁 Estrutura do Projeto
+```bash
+/noticia-de-oncas
 │
-├── data_prep.py          # Prepara e gera os arquivos de treino/val/teste
-├── train_bert.py         # Treina o modelo BERT para uma categoria
-├── evaluate_bert.py      # Avalia o modelo treinado
-├── oncas_comentarios.csv # Arquivo original de comentários
+├── data_prep.py
+├── train_bert.py
+├── evaluate_bert.py
+│
 ├── train_onca.csv
 ├── val_onca.csv
 ├── test_onca.csv
+│
 ├── train_caseiro.csv
-├── ...
+├── val_caseiro.csv
+├── test_caseiro.csv
+│
+├── train_fakenews.csv
+├── val_fakenews.csv
+├── test_fakenews.csv
+│
+├── bert_onca.pt
+├── bert_caseiro.pt
+├── bert_fakenews.pt
+│
+├── loss_onca.png
+├── loss_caseiro.png
+├── loss_fakenews.png
 │
 └── requirements.txt
+```
 
-💻 Como Executar o Projeto (VS Code)
-1. Instale os programas necessários
+## 💻 Como executar o projeto (Windows 10/11 + VS Code)
 
-Python (3.10+)
+### 1. Instale os programas necessários
 
-Visual Studio Code com extensão Python instalada
+- [Visual Studio Code](https://code.visualstudio.com/) com a extensão **Python**
+- [Python](https://www.python.org/downloads) (versão 3.10 ou superior)
 
-2. Instale as dependências
+---
 
-No terminal do VS Code:
+### 2. Prepare o ambiente no VS Code
 
-py -m pip install -r requirements.txt
+- Crie uma pasta chamada `noticias-de-oncas`
+- Coloque os arquivos disponibilizados neste repositório dentro da pasta
 
-3. Prepare o dataset
+Abra o terminal do VS Code (`Ctrl + Shift + '` ou vá em **Terminal → Novo Terminal**) e siga os passos abaixo:
 
-Coloque seu arquivo original na pasta:
+#### a) Verifique se o Python está instalado
 
-oncas_comentarios.csv
+```bash
+py --version
+```
 
+#### b) Instale as bibliotecas necessárias através do requeriments.txt
 
-Importante: o arquivo deve estar no formato CSV separado por ponto e vírgula (;).
+```bash
+pip install -r requirements.txt
+```
 
-Agora execute:
+#### c) Prepare os datasets
 
+```bash
 py data_prep.py
+```
+Isso irá gerar automaticamente os arquivos de treino, validação e teste para cada categoria.
 
+#### d) Treine um modelo
 
-Isso irá gerar automaticamente:
-
-train_onca.csv
-
-val_onca.csv
-
-test_onca.csv
-
-train_caseiro.csv
-
-val_caseiro.csv
-
-test_caseiro.csv
-
-train_fakenews.csv
-
-val_fakenews.csv
-
-test_fakenews.csv
-
-🚀 Treinando um modelo
-
-No computador (VS Code):
-
+```bash
 py train_bert.py onca
-
-
-ou:
-
 py train_bert.py caseiro
 py train_bert.py fakenews
+```
+Ao final, será gerado um arquivo de pesos:
+```bash
+bert_onca.pt
+bert_caseiro.pt
+bert_fakenews.pt
+```
+E um gráfico:
+```bash
+loss_onca.png
+loss_caseiro.png
+loss_fakenews.png
+```
 
+#### e) Avalie o modelo
 
-⚠ Atenção: o treinamento é MUITO pesado no PC
-➡ Recomenda-se usar o Google Colab com GPU.
-
-🔥 Treinando no Google Colab (recomendado)
-1. Suba sua pasta no Colab
-2. Na primeira célula instale as dependências:
-!pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-!pip install transformers pandas scikit-learn matplotlib
-
-3. No lugar do sys.argv padrão, ative manualmente a categoria:
-sys.argv = ["train_bert.py", "caseiro"]
-
-
-Depois execute normalmente o restante do código.
-
-🧪 Avaliando o Modelo
-
-Depois de treinado, rode:
-
+```bash
+py evaluate_bert.py onca
 py evaluate_bert.py caseiro
+py evaluate_bert.py fakenews
+```
+A saída inclui:
+-Métricas gerais
+-Matriz de confusão
+-Exemplos onde o modelo errou
 
+---
 
-Isso irá mostrar:
+## 📊 Sobre a Interpretação dos Sentimentos
 
-Precisão
+Categoria: Onça
+-Positivo → comentários que defendem a onça
+-Neutro → comentários imparciais
+-Negativo → comentários que culpam a onça
 
-Recall
+Categoria: Caseiro
+-Positivo → comentários que defendem o caseiro
+-Neutro → comentários imparciais
+-Negativo → comentários que culpam o caseiro pelo ataque
 
-F1-score
+Categoria: Fake News
+-Sim → o comentário contém desinformação
+-Não → não contém desinformação
 
-Matriz de Confusão
+Os modelos foram treinados com base nesses critérios exatamente como definidos no dataset original.
 
-Comentários classificados incorretamente
-
-📊 Exemplo de Saída do Gráfico de Treinamento
-
-O gráfico Evolução do Loss mostra:
-
-linha azul → erro no treino
-
-linha laranja → erro na validação
-
-Se a validação sobe enquanto o treino cai, significa overfitting.
-
-📦 Arquivo requirements.txt
-pandas
-torch
-transformers
-scikit-learn
-matplotlib
-numpy
-
-🎓 Objetivo Geral do Projeto
-
-O objetivo deste trabalho é:
-
-Treinar modelos de linguagem (BERT em português) capazes de classificar automaticamente comentários de notícias em três perspectivas: sentimento sobre a onça, sentimento sobre o caseiro e verificação de fake news.
-
-O projeto combina:
-
-processamento de linguagem natural (NLP),
-
-mineração de texto,
-
-análise de sentimentos,
-
-detecção de desinformação,
-
-aprendizado profundo (Deep Learning).
