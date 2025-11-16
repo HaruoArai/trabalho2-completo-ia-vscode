@@ -1,6 +1,6 @@
 # 🐆 Notícias de onças classificadas usando BERT 
 
-Este projeto utiliza BERT em português para realizar análise de sentimentos e detecção de fake news em comentários coletados sobre um caso envolvendo um ataque de onça aqui na região de Mato Grosso do Sul e sua repercussão nas redes sociais.
+Este projeto utiliza BERT em português para realizar análise de sentimentos e detecção de fake news em comentários coletados no Youtube sobre um caso envolvendo um ataque de onça aqui na região de Mato Grosso do Sul e sua repercussão nas redes sociais.
 
 O sistema classifica cada comentário em três tarefas distintas:
 - Sentimento relacionado à Onça (positivo, neutro, negativo)
@@ -131,18 +131,18 @@ A saída inclui:
 ## 📊 Sobre a Interpretação dos Sentimentos
 
 Categoria: Onça
--Positivo → comentários que defendem a onça
--Neutro → comentários imparciais
--Negativo → comentários que culpam a onça
+- Positivo → comentários que defendem a onça
+- Neutro → comentários imparciais
+- Negativo → comentários que culpam a onça
 
 Categoria: Caseiro
--Positivo → comentários que defendem o caseiro
--Neutro → comentários imparciais
--Negativo → comentários que culpam o caseiro pelo ataque
+- Positivo → comentários que defendem o caseiro
+- Neutro → comentários imparciais
+- Negativo → comentários que culpam o caseiro pelo ataque
 
 Categoria: Fake News
--Sim → o comentário contém desinformação
--Não → não contém desinformação
+- Sim → o comentário contém desinformação
+- Não → não contém desinformação
 
 Os modelos foram treinados com base nesses critérios exatamente como definidos no dataset original.
 
