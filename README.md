@@ -81,7 +81,7 @@ Abra o terminal do VS Code (`Ctrl + Shift + '` ou vá em **Terminal → Novo Ter
 py --version
 ```
 
-#### b) Instale as bibliotecas necessárias através do requeriments.txt
+#### b) Instale as bibliotecas necessárias através do requirements.txt
 
 ```bash
 pip install -r requirements.txt
