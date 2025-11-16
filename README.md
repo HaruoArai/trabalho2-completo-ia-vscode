@@ -81,10 +81,10 @@ Abra o terminal do VS Code (`Ctrl + Shift + '` ou vá em **Terminal → Novo Ter
 py --version
 ```
 
-#### b) Instale as bibliotecas necessárias através do requirements.txt
+#### b) Instale as bibliotecas necessárias através do requerements.txt
 
 ```bash
-pip install -r requirements.txt
+pip install -r requerements.txt
 ```
 
 #### c) Prepare os datasets
