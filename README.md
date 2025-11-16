@@ -122,9 +122,15 @@ py evaluate_bert.py caseiro
 py evaluate_bert.py fakenews
 ```
 A saída inclui:
--Métricas gerais
--Matriz de confusão
--Exemplos onde o modelo errou
+- Métricas gerais
+- Matriz de confusão
+- Exemplos onde o modelo errou
+
+#### ⚠️ Observação:
+
+- A partir do item **d (Treinamento do modelo)**, o processo pode ser demorado e exigir bastante poder de processamento. Para quem não possui um PC muito potente, é recomendado utilizar o **Copilot** para executar essas etapas de forma mais eficiente.
+
+- Além disso, o código contém **comentários específicos** que orientam e adaptam sua execução para o uso no Copilot, facilitando a experiência de quem optar por essa alternativa.
 
 ---
 
