@@ -56,7 +56,7 @@ O projeto inclui pré-processamento, treinamento e avaliação de modelos indepe
 ├── loss_caseiro.png
 ├── loss_fakenews.png
 │
-└── requirements.txt
+└── requerements.txt
 ```
 
 ## 💻 Como executar o projeto (Windows 10/11 + VS Code)
